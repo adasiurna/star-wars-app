@@ -1,7 +1,7 @@
 // src/components/Films.tsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, CardBody, CardTitle, CardSubtitle, CardLink, Row, Col, Badge, Table, Button, Spinner } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardLink, Row, Col, Badge, Table, Button, Spinner } from 'reactstrap';
 import { RootState } from '../store';
 import { setFilms } from '../features/filmSlice';
 import { setCharacter } from '../features/characterSlice';
@@ -11,8 +11,6 @@ import { IFilm } from '../models';
 const Films: React.FC = () => {
   const dispatch = useDispatch();
   const films = useSelector((state: RootState) => state.films.films);
-
-console.log('films: ', films);
 
   const [selectedFilm, setSelectedFilm] = useState<IFilm | null>(null);
   const [charactersLoading, setCharactersLoading] = useState(false);
@@ -58,19 +56,19 @@ console.log('films: ', films);
 
   return (
     <div className="vh-100 d-flex flex-column">
-      <div className='all-films-container'>      
+      <div className='container-films'>      
         <div className="container mt-5">
           <div className="row flex-nowrap overflow-auto pb-4">
             {films.map((film) => (
-              <div key={film.release_date} className="col-4">
-                <Card className='shadow-sm'>
-                  <CardBody>
+              <div key={film.release_date} className="col-6 col-md-4 col-xl-3">
+                <Card className='shadow-sm h-100'>
+                  <CardBody className='flex-grow-20'>
                     <Row>
-                      <Col xs="9">
+                      <Col xs="8" md="6" lg="8">
                         <CardTitle><strong>{film.title}</strong></CardTitle>
                         <small className='text-muted'>Release Date: {film.release_date}</small>
                       </Col>
-                      <Col xs="3">
+                      <Col xs="4" md="6" lg="4">
                         <h1>
                           <Badge>{film.episode_id}</Badge>
                         </h1>
@@ -93,7 +91,7 @@ console.log('films: ', films);
         </div>
       </div>
         {selectedFilm && (
-          <div className='scrollable-container my-5'>
+          <div className='container-scrollable my-5'>
             <Table striped>
               <thead>
                 <tr>
