@@ -91,8 +91,8 @@ const Films: React.FC = () => {
         </div>
       </div>
         {selectedFilm && (
-          <div className='container-scrollable my-5'>
-            <Table striped>
+          <div className='container container-scrollable mt-5 mb-3'>
+            <Table className='border' striped>
               <thead>
                 <tr>
                   <td className='text-center border-top' colSpan={5}>

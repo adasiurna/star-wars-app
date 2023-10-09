@@ -1,7 +1,7 @@
 import React from 'react';
 import Films from './components/Films';
 import About from './components/About';
-import { Row, Col, Nav, Card } from 'reactstrap';
+import { Row, Col, Nav, Card, Container } from 'reactstrap';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { GoTriangleRight } from "react-icons/go";
 
@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
     <Router>
-      <div className='vh-100'>
+      <Container fluid className='vh-100'>
         <Row>
           <Col xs="12" md="3" className='bg-light px-5'>
             <Card className='border-0 shadow my-5 py-3 px-5'>
@@ -34,7 +34,7 @@ const App: React.FC = () => {
             </Routes>
           </Col>
         </Row>
-      </div>
+      </Container>
     </Router>
     </div>
   );
