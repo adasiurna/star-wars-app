@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardBody, CardTitle, CardLink, Row, Col, Badge, Table, Button, Spinner } from 'reactstrap';
 import { RootState } from '../store';
-import { setFilms } from '../features/filmSlice';
+import { setFilms, setSelectedFilm } from '../features/filmSlice';
 import { setCharacter } from '../features/characterSlice';
 import Character from './Character';
 import { IFilm } from '../models';
@@ -10,8 +10,8 @@ import { IFilm } from '../models';
 const Films: React.FC = () => {
   const dispatch = useDispatch();
   const films = useSelector((state: RootState) => state.films.films);
+  const selectedFilm = useSelector((state: RootState) => state.films.selectedFilm);
 
-  const [selectedFilm, setSelectedFilm] = useState<IFilm | null>(null);
   const [charactersLoading, setCharactersLoading] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,11 @@ const Films: React.FC = () => {
   }, [dispatch]);
 
   const showPeople = async (film: IFilm) => {
-    setSelectedFilm(film);
+    if (film === selectedFilm) {
+      return;
+    }
+    
+    dispatch(setSelectedFilm(film));
     setCharactersLoading(true);
 
     // fetching people data for the film one by one
