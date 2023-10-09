@@ -1,5 +1,11 @@
+import Films from './components/Films';
+
 const App = () => {
-  return <p>Star Wars App</p>
+  return (
+    <div>
+      <Films/>
+    </div>
+  )
 }
 
 export default App
