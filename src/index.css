@@ -22,7 +22,6 @@ body {
 .container-films {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
 .container-scrollable {

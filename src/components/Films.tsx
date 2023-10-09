@@ -1,4 +1,3 @@
-// src/components/Films.tsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardBody, CardTitle, CardLink, Row, Col, Badge, Table, Button, Spinner } from 'reactstrap';
