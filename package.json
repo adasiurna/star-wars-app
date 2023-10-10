@@ -1,7 +1,7 @@
 {
   "name": "star-wars-app",
   "version": "0.1.0",
-  "homepage": "https://adasiurna.github.io/react-gh-pages",
+  "homepage": "https://adasiurna.github.io/star-wars-app",
   "private": true,
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
